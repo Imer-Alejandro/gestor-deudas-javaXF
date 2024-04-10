@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cashdebt.ClientesController">
+    <children>
+        <Pane prefHeight="682.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;">
+            <children>
+                <Label layoutX="41.0" layoutY="33.0" text="casH" textFill="#4866eb">
+                    <font>
+                        <Font name="System Bold" size="25.0" />
+                    </font>
+                </Label>
+                <Label layoutX="97.0" layoutY="33.0" text="Debt">
+                    <font>
+                        <Font name="System Bold" size="25.0" />
+                    </font>
+                </Label>
+                <Separator layoutX="24.0" layoutY="87.0" prefHeight="1.0" prefWidth="148.0" />
+                <Button layoutX="15.0" layoutY="149.0" mnemonicParsing="false" onAction="#cambioViewPanelControl" prefHeight="28.0" prefWidth="170.0" style=" -fx-background-color: transparent;" text="Panel de control">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Button>
+                <Button layoutX="14.0" layoutY="211.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="170.0" style="-fx-background-color: #13678a; -fx-border-color: transparent; -fx-border-radius: 5;" text="Panel de clientes" textFill="WHITE">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Button>
+                <Button layoutX="13.0" layoutY="267.0" mnemonicParsing="false" onAction="#cambioViewAjustes" prefHeight="28.0" prefWidth="170.0" style="-fx-background-color: transparent;" text="Ajustes generales">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Button>
+                <Separator layoutX="24.0" layoutY="347.0" prefHeight="1.0" prefWidth="148.0" />
+                <Pane layoutY="386.0" prefHeight="36.0" prefWidth="200.0">
+                    <children>
+                        <Label layoutX="20.0" layoutY="10.0" text="Registrar cliente" />
+                        <Button layoutX="134.0" layoutY="6.0" mnemonicParsing="false" onAction="#openCreateUser" prefHeight="25.0" prefWidth="52.0" style="-fx-background-color: #13678A; -fx-border-radius: 5;">
+
+                        </Button>
+                    </children>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Pane>
+                <Pane layoutY="453.0" prefHeight="36.0" prefWidth="200.0">
+                    <children>
+                        <Label layoutX="20.0" layoutY="10.0" text="Registrar abono" />
+                        <Button layoutX="134.0" layoutY="6.0" mnemonicParsing="false" onAction="#openViewAbono" prefHeight="25.0" prefWidth="52.0" style="-fx-background-color: #28BE50; -fx-border-radius: 5;" />
+                    </children>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Pane>
+                <Pane layoutY="523.0" prefHeight="36.0" prefWidth="200.0">
+                    <children>
+                        <Label layoutX="20.0" layoutY="10.0" text="Registrar deuda" />
+                        <Button layoutX="134.0" layoutY="6.0" mnemonicParsing="false" onAction="#openViewDeuda" prefHeight="25.0" prefWidth="52.0" style="-fx-background-color: #DF3131; -fx-border-radius: 5;" />
+                    </children>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Pane>
+            </children>
+        </Pane>
+        <Pane layoutX="200.0" prefHeight="94.0" prefWidth="1107.0" style="-fx-background-color: #13678A;">
+            <children>
+                <TextField fx:id="DatoBusquedad" layoutX="254.0" layoutY="19.0" prefHeight="56.0" prefWidth="599.0" promptText="Buscar cliente..." style="-fx-border-radius: 20;" />
+            </children>
+        </Pane>
+        <Label layoutX="219.0" layoutY="140.0" text="Panel de clientes">
+            <font>
+                <Font size="26.0" />
+            </font>
+        </Label>
+        <Pane layoutX="219.0" layoutY="208.0" prefHeight="103.0" prefWidth="301.0" style="-fx-background-color: #FFFFFF;">
+            <children>
+                <Pane layoutY="98.0" prefHeight="11.0" prefWidth="301.0" style="-fx-background-color: #2F5DDE;" />
+                <Label layoutX="14.0" layoutY="14.0" text="Total de los clientes" />
+                <Label fx:id="counterClientes" layoutX="14.0" layoutY="44.0" text="12" textFill="#2f5dde">
+                    <font>
+                        <Font size="30.0" />
+                    </font>
+                </Label>
+            </children>
+        </Pane>
+        <Pane layoutX="569.0" layoutY="208.0" prefHeight="103.0" prefWidth="301.0" style="-fx-background-color: #FFFFFF;">
+            <children>
+                <Pane layoutY="98.0" prefHeight="11.0" prefWidth="301.0" style="-fx-background-color: #2AD858;" />
+                <Label layoutX="14.0" layoutY="14.0" text="Total de los ingresos" />
+                <Label fx:id="counterIngresos" layoutX="14.0" layoutY="44.0" text="12,000" textFill="#2ad858">
+                    <font>
+                        <Font size="30.0" />
+                    </font>
+                </Label>
+            </children>
+        </Pane>
+        <Pane layoutX="919.0" layoutY="208.0" prefHeight="103.0" prefWidth="301.0" style="-fx-background-color: #FFFFFF;">
+            <children>
+                <Pane layoutY="98.0" prefHeight="11.0" prefWidth="301.0" style="-fx-background-color: #DF3131;" />
+                <Label layoutX="14.0" layoutY="14.0" text="Total de la deuda" />
+                <Label fx:id="counterDeuda" layoutX="14.0" layoutY="44.0" text="70,000" textFill="#df3131">
+                    <font>
+                        <Font size="30.0" />
+                    </font>
+                </Label>
+            </children>
+        </Pane>
+        <ScrollPane layoutX="219.0" layoutY="334.0" prefHeight="331.0" prefWidth="1000.0">
+            <content>
+                <AnchorPane fx:id="ContentCard" minHeight="0.0" minWidth="0.0" prefHeight="329.0" prefWidth="998.0">
+               <children>
+
+               </children>
+                </AnchorPane>
+            </content>
+        </ScrollPane>
+        <Pane fx:id="viewCrearUser" layoutX="-18.0" prefHeight="682.0" prefWidth="1325.0" style="-fx-background-color: rgba(13, 21, 39, 0.5);" visible="false">
+            <children>
+                <Pane layoutX="933.0" prefHeight="682.0" prefWidth="378.0" style="-fx-background-color: #FFFFFF;">
+                    <children>
+                        <Label layoutX="104.0" layoutY="14.0" text="Nuevo cliente">
+                            <font>
+                                <Font size="28.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="nombreNewCliente" layoutX="16.0" layoutY="139.0" prefHeight="63.0" prefWidth="350.0" promptText="ingrese el primer nombre y el primer apellido" />
+                        <Label layoutX="16.0" layoutY="122.0" text="Nombre cliente" />
+                        <TextField fx:id="telefonoNewCliente" layoutX="14.0" layoutY="234.0" prefHeight="63.0" prefWidth="350.0" />
+                        <Label layoutX="14.0" layoutY="217.0" text="Telefono" />
+                        <TextField fx:id="cedulaNewCliente" layoutX="14.0" layoutY="333.0" prefHeight="63.0" prefWidth="350.0" />
+                        <Label layoutX="14.0" layoutY="316.0" text="Cedula" />
+                        <TextField fx:id="comentarioNewCliente" layoutX="14.0" layoutY="432.0" prefHeight="63.0" prefWidth="350.0" />
+                        <Label layoutX="14.0" layoutY="415.0" text="Comentario" />
+                        <Button layoutX="16.0" layoutY="558.0" mnemonicParsing="false" onAction="#registrarCliente" prefHeight="63.0" prefWidth="350.0" style="-fx-background-color: #13678A; -fx-border-radius: 5;" text="Registrar cliente" textFill="WHITE">
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Button>
+                        <Button layoutX="-1.0" layoutY="-3.0" mnemonicParsing="false" onAction="#cerrarCreateUser" style="-fx-background-color: transparent;" text="x">
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                            <font>
+                                <Font name="Arial Rounded MT Bold" size="18.0" />
+                            </font>
+                        </Button>
+                    </children>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Pane>
+            </children>
+        </Pane>
+        <Pane fx:id="viewAbono" prefHeight="682.0" prefWidth="1307.0" style="-fx-background-color: rgba(13, 21, 39, 0.5);" visible="false">
+            <children>
+                <Pane layoutX="921.0" prefHeight="682.0" prefWidth="378.0" style="-fx-background-color: #FFFFFF;">
+                    <children>
+                        <Label layoutX="111.0" layoutY="14.0" text="Nueva abono">
+                            <font>
+                                <Font size="28.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="montoAbono" layoutX="16.0" layoutY="139.0" prefHeight="63.0" prefWidth="350.0" />
+                        <Label layoutX="16.0" layoutY="122.0" text="Monto del abono" />
+                        <Label layoutX="14.0" layoutY="217.0" text="Cliente del abono" />
+                        <Button layoutX="16.0" layoutY="558.0" mnemonicParsing="false" onAction="#registrarAbono" prefHeight="63.0" prefWidth="350.0" style="-fx-background-color: #28BE50; -fx-border-radius: 5;" text="Registrar abono" textFill="WHITE">
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Button>
+                        <ChoiceBox fx:id="listadoClienteExistentesAbono" layoutX="14.0" layoutY="234.0" prefHeight="63.0" prefWidth="350.0">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+
+                                </FXCollections>
+                            </items>
+                        </ChoiceBox>
+                        <Button layoutX="3.0" layoutY="3.0" mnemonicParsing="false" onAction="#closeViewAbono" style="-fx-background-color: transparent;" text="x">
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                            <font>
+                                <Font name="Arial Rounded MT Bold" size="18.0" />
+                            </font>
+                        </Button>
+                    </children>
+                </Pane>
+            </children>
+        </Pane>
+        <Pane fx:id="viewDeuda" prefHeight="682.0" prefWidth="1307.0" style="-fx-background-color: rgba(13, 21, 39, 0.5);" visible="false">
+            <children>
+                <Pane layoutX="921.0" prefHeight="682.0" prefWidth="378.0" style="-fx-background-color: #FFFFFF;">
+                    <children>
+                        <Label layoutX="111.0" layoutY="14.0" text="Nueva deuda">
+                            <font>
+                                <Font size="28.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="montoDeuda" layoutX="16.0" layoutY="139.0" prefHeight="63.0" prefWidth="350.0" />
+                        <Label layoutX="16.0" layoutY="122.0" text="Monto de la deuda" />
+                        <Label layoutX="14.0" layoutY="217.0" text="Cliente de la deuda" />
+                        <Button layoutX="16.0" layoutY="558.0" mnemonicParsing="false" onAction="#registrarDeuda" prefHeight="63.0" prefWidth="350.0" style="-fx-background-color: #DF3131; -fx-border-radius: 5;" text="Registrar deuda" textFill="WHITE">
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Button>
+                        <ChoiceBox fx:id="listadoClienteExistentes" layoutX="14.0" layoutY="234.0" prefHeight="63.0" prefWidth="350.0">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+
+                                </FXCollections>
+                            </items>
+                        </ChoiceBox>
+                        <Button layoutX="3.0" layoutY="3.0" mnemonicParsing="false" onAction="#closeViewDeuda" style="-fx-background-color: transparent;" text="x">
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                            <font>
+                                <Font name="Arial Rounded MT Bold" size="18.0" />
+                            </font>
+                        </Button>
+                    </children>
+                </Pane>
+            </children>
+        </Pane>
+        <Pane fx:id="viewEditar" layoutX="-18.0" prefHeight="682.0" prefWidth="1325.0" style="-fx-background-color: rgba(13, 21, 39, 0.5);" visible="false">
+            <children>
+                <Pane layoutX="933.0" prefHeight="682.0" prefWidth="378.0" style="-fx-background-color: #FFFFFF;">
+                    <children>
+                        <Label layoutX="104.0" layoutY="14.0" text="Editar cliente">
+                            <font>
+                                <Font size="28.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="nombreEditCliente" layoutX="16.0" layoutY="139.0" prefHeight="63.0" prefWidth="350.0" promptText="ingrese el primer nombre y el primer apellido" />
+                        <Label layoutX="16.0" layoutY="122.0" text="Nombre cliente" />
+                        <TextField fx:id="telefonoEditCliente" layoutX="14.0" layoutY="234.0" prefHeight="63.0" prefWidth="350.0" />
+                        <Label layoutX="14.0" layoutY="217.0" text="Telefono" />
+                        <TextField fx:id="cedulaEditCliente" layoutX="14.0" layoutY="333.0" prefHeight="63.0" prefWidth="350.0" />
+                        <Label layoutX="14.0" layoutY="316.0" text="Cedula" />
+                        <TextField fx:id="comentarioEditCliente" layoutX="14.0" layoutY="432.0" prefHeight="63.0" prefWidth="350.0" />
+                        <Label layoutX="14.0" layoutY="415.0" text="Comentario" />
+                        <Button layoutX="16.0" layoutY="558.0" mnemonicParsing="false" onAction="#updateInfEdit" prefHeight="63.0" prefWidth="350.0" style="-fx-background-color: #13678A; -fx-border-radius: 5;" text="Guardar cambios" textFill="WHITE">
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Button>
+                        <Button layoutX="-1.0" layoutY="-3.0" mnemonicParsing="false" onAction="#closeEdituser" style="-fx-background-color: transparent;" text="x">
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                            <font>
+                                <Font name="Arial Rounded MT Bold" size="18.0" />
+                            </font>
+                        </Button>
+                    </children>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Pane>
+            </children>
+        </Pane>
+        <Pane fx:id="viewBusquedad" layoutX="-18.0" prefHeight="682.0" prefWidth="1325.0" style="-fx-background-color: rgba(13, 21, 39, 0.5);" visible="false">
+            <children>
+                <Pane layoutX="938.0" prefHeight="682.0" prefWidth="378.0" style="-fx-background-color: #FFFFFF;">
+                    <children>
+                        <Label layoutX="55.0" layoutY="11.0" text="Resultado busquedad">
+                            <font>
+                                <Font size="28.0" />
+                            </font>
+                        </Label>
+
+                        <Button layoutX="-1.0" layoutY="-3.0" mnemonicParsing="false" onAction="#closeResultadoBusquedad" style="-fx-background-color: transparent;" text="x">
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                            <font>
+                                <Font name="Arial Rounded MT Bold" size="18.0" />
+                            </font>
+                        </Button>
+                        <Label fx:id="resultNombre" layoutX="14.0" layoutY="95.0" text="Nombre cliente">
+                            <font>
+                                <Font size="22.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="14.0" layoutY="135.0" text="Comentario">
+                            <font>
+                                <Font name="System Bold" size="15.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="resultComentario" layoutX="14.0" layoutY="156.0" text="Este es el comentario del cliente">
+                            <font>
+                                <Font size="15.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="14.0" layoutY="184.0" text="Telefono">
+                            <font>
+                                <Font name="System Bold" size="15.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="resultTelefono" layoutX="14.0" layoutY="205.0" text="8296714173">
+                            <font>
+                                <Font size="15.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="14.0" layoutY="234.0" text="Fecha registro">
+                            <font>
+                                <Font name="System Bold" size="15.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="resultDataRegistro" layoutX="14.0" layoutY="255.0" text="12-02-2024">
+                            <font>
+                                <Font size="15.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="16.0" layoutY="283.0" text="Cedula">
+                            <font>
+                                <Font name="System Bold" size="15.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="resultCedula" layoutX="16.0" layoutY="304.0" text="402-1097760-5">
+                            <font>
+                                <Font size="15.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="19.0" layoutY="388.0" text="Deuda pendiente">
+                            <font>
+                                <Font name="System Bold" size="15.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="resultDeudaPendiente" layoutX="19.0" layoutY="409.0" text="7,340">
+                            <font>
+                                <Font size="15.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="20.0" layoutY="438.0" text="Monto abonado">
+                            <font>
+                                <Font name="System Bold" size="15.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="resultMontoAbonado" layoutX="20.0" layoutY="459.0" text="580">
+                            <font>
+                                <Font size="15.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="16.0" layoutY="336.0" text="Total deuda">
+                            <font>
+                                <Font name="System Bold" size="15.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="resultDeudaGeneral" layoutX="16.0" layoutY="357.0" text="402-1097760-5">
+                            <font>
+                                <Font size="15.0" />
+                            </font>
+                        </Label>
+                    </children>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Pane>
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>

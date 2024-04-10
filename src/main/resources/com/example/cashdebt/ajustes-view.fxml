@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SplitMenuButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cashdebt.AjustesController">
+    <children>
+        <Pane prefHeight="682.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;">
+            <children>
+                <Label layoutX="41.0" layoutY="33.0" text="casH" textFill="#4866eb">
+                    <font>
+                        <Font name="System Bold" size="25.0" />
+                    </font>
+                </Label>
+                <Label layoutX="97.0" layoutY="33.0" text="Debt">
+                    <font>
+                        <Font name="System Bold" size="25.0" />
+                    </font>
+                </Label>
+                <Separator layoutX="24.0" layoutY="87.0" prefHeight="1.0" prefWidth="148.0" />
+                <Button layoutX="15.0" layoutY="149.0" mnemonicParsing="false" onAction="#cambioViewPanelControl" prefHeight="28.0" prefWidth="170.0" style="-fx-background-color: transparent;" text="Panel de control">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Button>
+
+                <Button layoutX="15.0" layoutY="208.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="170.0" style="-fx-background-color: #13678a; -fx-border-color: transparent; -fx-border-radius: 5;" text="Ajustes generales" textFill="WHITE">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Button>
+            </children>
+        </Pane>
+        <Pane layoutX="200.0" prefHeight="94.0" prefWidth="1107.0" style="-fx-background-color: #13678A;" />
+        <Label layoutX="219.0" layoutY="140.0" text="Ajustes generales">
+            <font>
+                <Font size="26.0" />
+            </font>
+        </Label>
+
+      <Pane layoutX="219.0" layoutY="190.0" prefHeight="454.0" prefWidth="1041.0" style="-fx-background-color: #FFFFFF; -fx-border-radius: 5; -fx-border-color: gray;">
+         <children>
+            <Label layoutX="386.0" layoutY="22.0" text="Cambiar datos de la session">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+            <TextField fx:id="nuevoUsuario" layoutX="388.0" layoutY="99.0" prefHeight="40.0" prefWidth="270.0" />
+            <Label layoutX="388.0" layoutY="82.0" text="Ingrese el nuevo nombre de usuario" />
+            <TextField fx:id="oldPass" layoutX="388.0" layoutY="167.0" prefHeight="40.0" prefWidth="270.0" />
+            <Label layoutX="388.0" layoutY="150.0" text="Ingrese la contraseña anterior" />
+            <TextField fx:id="newPass" layoutX="388.0" layoutY="231.0" prefHeight="40.0" prefWidth="270.0" />
+            <Label layoutX="388.0" layoutY="214.0" text="ingrese la contraseña nueva" />
+            <Button onAction="#actualizarDatos" layoutX="388.0" layoutY="312.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="270.0" style="-fx-background-color: #13678A; -fx-border-radius: 5;" text="Guardar cambios " textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+    </children>
+</AnchorPane>
